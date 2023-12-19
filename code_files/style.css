@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primaryColor: rgb(0, 68, 146);
+    --secondaryColor: rgb(0, 149, 255);
+    --thirdColor: rgb(7, 34, 53);
+
+    --headerHeight: 70px;
+
+    --fontFamily: 'Oswald', sans-serif;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--primaryColor);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    width: 100%;
+    height: var(--headerHeight);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tasks, .done, .unfinished {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondaryColor);
+    font-size: 20px;
+    font-family: var(--fontFamily);
+}
+
+.tasks:hover, .done:hover, .unfinished:hover {
+    background-color: var(--primaryColor);
+    color: white;
+    cursor: pointer;
+}
+
+.active-tab {
+    background-color: var(--primaryColor);
+    color: white;
+    cursor: pointer;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.todos-page, .done-page {
+    background-color: var(--primaryColor);
+    position: absolute;
+    top: var(--headerHeight);
+    width: 100%;
+}
+
+.todos-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.done-page, .unfinished-page {
+    width: 90%;
+    height: 100%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.done-page h1, .unfinished-page h1 {
+    font-family: var(--fontFamily);
+    color: white;
+    margin-top: 200px;
+}
+
+.new-task-widgets {
+    width: 90%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.new-task-widgets .add-btn, .date-picker-btn {
+    width: 120px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-family: var(--fontFamily);
+    background-color: white;
+    color: var(--primaryColor);
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.new-task-widgets .add-btn:hover, .date-picker-btn:hover {
+    background-color: var(--secondaryColor);
+    color: white;
+    cursor: pointer;
+}
+
+.new-task-widgets #task-text {
+    width: 100%;
+    height: 80px;
+    padding-left: 10px;
+    font-family: var(--fontFamily);
+    font-size: 24px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.new-task-widgets .date-text {
+    width: 400px;
+    height: 80px;
+    margin-left: 20px;
+    margin-right: 0px;
+    background-color: white;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right-width: 1px;
+    border-right-color: var(--primaryColor);
+    border-right-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--fontFamily);
+    font-size: 24px;
+    color: black;
+}
+
+.new-task-widgets .date-picker-btn {
+    margin-left: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    margin-right: 0px;
+}
+
+.new-task-widgets .date-picker-window {
+    position: absolute;    
+    width: 330px;
+    height: 200px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5px;
+    border: 2px solid var(--primaryColor);
+}
+
+.date-pickers {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#days, #months, #years {
+    width: 80px;
+    height: 50px;
+}
+
+.date-picker-window h4 {
+    color: red;
+    text-align: center;
+}
+
+.btns-group {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.confirm-btn, .reset-btn {
+    background-color: var(--primaryColor);
+    color: white;
+    width: 120px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-family: var(--fontFamily);
+}
+
+.confirm-btn:hover, .reset-btn:hover {
+    background-color: var(--secondaryColor);
+    color: white;
+    cursor: pointer;
+}
+
+.error {
+    margin-top: 20px;
+    color: red;
+    text-align: center;
+}
+
+.tasks-list-body {
+    width: 90%;
+    height: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tasks-list-body h1 {
+    margin-top: 100px;
+    font-family: var(--fontFamily);
+    color: white;
+}
+
+.task-item, .done-task-item, .unfinished-task-item {
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0px;
+    border-radius: 5px;
+}
+
+.task-item h3, .done-task-item h3, .unfinished-task-item h3 {
+    font-family: var(--fontFamily);
+    font-size: 26px;
+    margin-left: 15px;
+}
+
+.task-item .check-box {
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+    border: 2px solid var(--primaryColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--fontFamily);
+    font-size: 24px;
+    color: white;
+}
+
+.check-box:hover {
+    cursor: pointer;
+}
+
+.checked {
+    background-color: var(--primaryColor);
+}
+
+.first-half {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.upper-widgets {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+.first-half h6 {
+    font-family: var(--fontFamily);
+    margin-left: 15px;
+}
+
+.remove-btn {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    color: white;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.remove-btn:hover {
+    cursor: pointer;
+    background-color: rgb(165, 6, 6);
+}
+
+.done-task-item i {
+    font-size: 30px;
+    margin-right: 15px;
+    color: rgb(25, 178, 25);
+}
+
+.unfinished-task-item i {
+    font-size: 30px;
+    margin-right: 15px;
+    color: red;
+}
