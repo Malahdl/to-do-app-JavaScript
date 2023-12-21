@@ -5,3 +5,5 @@ This is a simple app where you can create new tasks and set a time limit for the
 Your tasks will be saved on your local storage, and you can remove them as well.
 
 You can watch the demonstration video for more clarity.
+
+You can also see some snapshots of the app in the "samples" folder.
